@@ -1,0 +1,246 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=DM+Mono&display=swap');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg-page:       #f0efe8;
+  --bg-card:       #ffffff;
+  --bg-input:      #f7f6f2;
+  --bg-avatar:     #ddeeff;
+  --color-primary: #1a1a1a;
+  --color-muted:   #888780;
+  --color-hint:    #b4b2a9;
+  --color-border:  rgba(0,0,0,0.12);
+  --color-border-focus: rgba(0,0,0,0.35);
+  --color-accent:  #1a1a1a;
+  --color-avatar-text: #185fa5;
+  --radius-md:     8px;
+  --radius-lg:     12px;
+  --font-sans:     'DM Sans', sans-serif;
+  --font-mono:     'DM Mono', monospace;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-page:       #1c1c1a;
+    --bg-card:       #252523;
+    --bg-input:      #1e1e1c;
+    --bg-avatar:     #0c3558;
+    --color-primary: #f0efe8;
+    --color-muted:   #888780;
+    --color-hint:    #5f5e5a;
+    --color-border:  rgba(255,255,255,0.1);
+    --color-border-focus: rgba(255,255,255,0.3);
+    --color-accent:  #f0efe8;
+    --color-avatar-text: #85b7eb;
+  }
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--bg-page);
+  color: var(--color-primary);
+  min-height: 100vh;
+  padding: 2.5rem 1rem;
+}
+
+.container {
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+/* encabezado */
+
+h1 {
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--color-primary);
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.3px;
+}
+
+h1 span {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--color-muted);
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  display: block;
+  margin-bottom: 4px;
+}
+
+/* tarjeta */
+
+.card {
+  background: var(--bg-card);
+  border: 0.5px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.card-label {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--color-hint);
+  margin-bottom: 1rem;
+}
+
+/* campos */
+
+.field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 1rem;
+}
+
+.field {
+  position: relative;
+}
+
+.field i {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 15px;
+  color: var(--color-hint);
+  pointer-events: none;
+}
+
+.field input {
+  width: 100%;
+  padding: 9px 12px 9px 34px;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  color: var(--color-primary);
+  background: var(--bg-input);
+  border: 0.5px solid var(--color-border);
+  border-radius: var(--radius-md);
+  outline: none;
+  transition: border-color .15s, background .15s;
+}
+
+.field input::placeholder {
+  color: var(--color-hint);
+}
+
+.field input:hover {
+  border-color: var(--color-muted);
+}
+
+.field input:focus {
+  border-color: var(--color-border-focus);
+  background: var(--bg-card);
+}
+
+/* botones */
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 100%;
+  padding: 9px 16px;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-primary);
+  background: transparent;
+  border: 0.5px solid var(--color-border);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: background .15s, opacity .15s;
+}
+
+.btn:hover {
+  background: var(--bg-input);
+}
+
+.btn:active {
+  transform: scale(.98);
+}
+
+.btn-primary {
+  background: var(--color-accent);
+  color: var(--bg-card);
+  border-color: transparent;
+}
+
+.btn-primary:hover {
+  opacity: .85;
+  background: var(--color-accent);
+}
+
+/* divisor */
+
+.divider {
+  height: 0.5px;
+  background: var(--color-border);
+  margin: 1rem 0;
+}
+
+/* lista de alumnos */
+
+#lista {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.alumno-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 0.5px solid var(--color-border);
+}
+
+.alumno-item:last-child {
+  border-bottom: none;
+}
+
+.alumno-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--bg-avatar);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--color-avatar-text);
+  flex-shrink: 0;
+}
+
+.alumno-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.alumno-nombre {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.alumno-dni {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--color-muted);
+  margin-top: 1px;
+}

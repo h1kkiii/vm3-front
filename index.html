@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistema de Alumnos</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1><span>sistema</span>Alumnos</h1>
+
+    <div class="card">
+      <p class="card-label">Registrar alumno</p>
+      <div class="field-group">
+        <div class="field">
+          <i class="ti ti-user"></i>
+          <input type="text" id="apellidos" placeholder="Apellidos" autocomplete="off">
+        </div>
+        <div class="field">
+          <i class="ti ti-user-circle"></i>
+          <input type="text" id="nombres" placeholder="Nombres" autocomplete="off">
+        </div>
+        <div class="field">
+          <i class="ti ti-id-badge"></i>
+          <input type="text" id="dni" placeholder="DNI" autocomplete="off" inputmode="numeric">
+        </div>
+      </div>
+      <button class="btn btn-primary" onclick="guardarAlumno()">
+        <i class="ti ti-device-floppy"></i>
+        Guardar alumno
+      </button>
+    </div>
+
+    <div class="card">
+      <p class="card-label">Lista de alumnos</p>
+      <button class="btn" onclick="consultarAlumnos()">
+        <i class="ti ti-refresh"></i>
+        Consultar
+      </button>
+      <ul id="lista"></ul>
+    </div>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
